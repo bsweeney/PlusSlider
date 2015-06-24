@@ -1,112 +1,154 @@
 # PlusSlider jQuery Plugin
 
-A jQuery content slider that is easily configurable and can easily be switched between 'fading' and 'sliding'
+An agnostic, fluid jQuery content slider that is easily configurable and stylable.
 
 ## Features
-* Slides are _HTML_ (_Can be images or text_)
+* BEM CSS methadology used
 * Easily swap between **fading** &amp; *sliding*
+* Fluid or fixed width
+* Slides are _HTML_ (_Can be images or text_)
 * _Infinite Slide_ support
 * Multiple PlusSliders per page
-* Fixed width or 100% width support
-* Slides can be different width and or height
+* Adaptive dimensions - Slides can be different width and or height
 * API for developers
 * Very _simple_ &amp; _valid markup_
 * AutoPlay (_Optional_)
 * **Next/Previous** Navigation (_Optional_)
 * Titled or numbered **paginated** navigation (_Optional_)
 * Callback available after each slide
-* Tested on *IE 6+* and *modern browsers*
+* Tested on *IE 7+* and *modern browsers*
 
 ## Default Options
-	$('#slider').plusSlider({
-		
-		/* General */
-		sliderType          : 'slider', // Choose whether the carousel is a 'slider' or a 'fader'
-		infiniteSlide       : true, // Gives the effect that the slider doesn't ever "repeat" and just continues forever
-		disableLoop         : false, // Disables prev or next buttons if they are on the first or last slider respectively. 'first' only disables the previous button, 'last' disables the next and 'both' disables both
-		fullWidth           : false, // sets the width of the slider to 100% of the parent container
-		width               : null, // Set the width of the slider
-		height              : null, // Set the height of the slider
-		
-		/* Display related */
-		defaultSlide        : 0, // Sets the default starting slide - Number based on item index
-		displayTime         : 4000, // The amount of time the slide waits before automatically moving on to the next one. This requires 'autoPlay: true'
-		sliderEasing        : 'linear', // Anything other than 'linear' and 'swing' requires the easing plugin
-		speed               : 500, // The amount of time it takes for a slide to fade into another slide
+    $('#slider').plusSlider({
 
-		/* Functioanlity related */
-		autoPlay            : true, // Creats a times, looped 'slide-show'
-		keyboardNavigation  : true, // The keyboard's directional left and right arrows function as next and previous buttons
-		pauseOnHover        : true, // AutoPlay does not continue ifsomeone hovers over Plus Slider.
+        /* General */
+        sliderType          : 'slider', // Choose whether the carousel is a 'slider' or a 'fader'
+        infiniteSlide       : true, // Gives the effect that the slider doesn't ever "repeat" and just continues forever
+        disableLoop         : false, // Disables prev or next buttons if they are on the first or last slider respectively. 'first' only disables the previous button, 'last' disables the next and 'both' disables both
 
-		/* Arrow related */
-		createArrows        : true, // Creates forward and backward navigation
-		arrowsPosition      : 'prepend', //Where to insert arrows in relation to the slider ('before', 'prepend', 'append', or 'after')
-		nextText            : 'Next', // Adds text to the 'next' trigger
-		prevText            : 'Previous', // Adds text to the 'prev' trigger
+        /* Display related */
+        defaultSlide        : 0, // Sets the default starting slide - Number based on item index
+        displayTime         : 4000, // The amount of time the slide waits before automatically moving on to the next one. This requires 'autoPlay: true'
+        sliderEasing        : 'linear', // Anything other than 'linear' and 'swing' requires the easing plugin
+        speed               : 500, // The amount of time it takes for a slide to fade into another slide
 
-		/* Pagination related */
-		createPagination    : true, // Creates Numbered pagination
-		paginationPosition  : 'append', // Where to insert pagination in relation to the slider element ('before', 'prepend', 'append', or 'after')
-		paginationWidth     : false, // Automatically gives the pagination a dynamic width
-		paginationTitle     : false, // Checks for attribute 'data-title' on each slide and names the pagination accordingly
+        /* Functioanlity related */
+        autoPlay            : true, // Creats a times, looped 'slide-show'
+        keyboardNavigation  : true, // The keyboard's directional left and right arrows function as next and previous buttons
+        pauseOnHover        : true, // AutoPlay does not continue ifsomeone hovers over Plus Slider.
 
-		/* Callbacks */
-		onInit              : null, // Callback function: On slider initialize
-		onSlide             : null, // Callback function: As the slide starts to animate
-		afterSlide          : null, // Callback function: As the slide completes the animation
-		onSlideEnd          : null // Callback function: Once the slider reaches the last slide
+        /* Arrow related */
+        createArrows        : true, // Creates forward and backward navigation
+        arrowsPosition      : 'prepend', //Where to insert arrows in relation to the slider ('before', 'prepend', 'append', or 'after')
+        nextText            : 'Next', // Adds text to the 'next' trigger
+        prevText            : 'Previous', // Adds text to the 'prev' trigger
 
-	});
+        /* Pagination related */
+        createPagination    : true, // Creates Numbered pagination
+        paginationPosition  : 'append', // Where to insert pagination in relation to the slider element ('before', 'prepend', 'append', or 'after')
+        paginationWidth     : false, // Automatically gives the pagination a dynamic width
+
+        /* Callbacks */
+        onInit              : null, // Callback function: On slider initialize
+        onSlide             : null, // Callback function: As the slide starts to animate
+        afterSlide          : null, // Callback function: As the slide completes the animation
+        onSlideEnd          : null, // Callback function: Once the slider reaches the last slide
+
+        // Slider namespace
+        namespace: 'plusslider',
+
+        // Slider class names.
+        // Note: All names are automatically prepended with namespace
+        attrNames: {
+            'elClass'             : '',
+            'elActiveClass'       : '--active',
+            'elTypeSliderClass'   : '--type-slider',
+            'elTypeFaderClass'    : '--type-fader',
+            'containerClass'      : '__container',
+            'slideListClass'      : '__slide-list',
+            'slideItemClass'      : '__slide-item',
+            'slideItemActiveClass': '__slide--active',
+            'slideItemCloneClass' : '__slide--clone',
+            'arrowClass'          : '__arrow',
+            'arrowListClass'      : '__arrow-list',
+            'arrowItemClass'      : '__arrow-item',
+            'arrowItemPrevClass'  : '__arrow-item--prev',
+            'arrowItemNextClass'  : '__arrow-item--next',
+            'pagiClass'           : '__pagi',
+            'pagiListClass'       : '__pagi-list',
+            'pagiItemClass'       : '__pagi-item',
+            'pagiItemActiveClass' : '__pagi-item--active'
+        }
+
+    });
 
 ## Using the API
 The following are the PlusSlider values you may use within the callback functions. Property names beginning with $ ( dollar sign ) are referencing a jQuery object, methods are referenced by ending in () ( open parenthasis, close parenthasis ) and the rest contain a number value.
 
-	base.$wrap                    // References the .plusslider jQuery object
-	base.$slides                  // References all slide jQuery slide objects
-	base.$slideCloneFirst;        // First slide cloned element needed for infinite slide
-	base.$slideCloneLast;         // Last slide cloned element needed for infinite slide
-	base.$wrapContainer           // References the jQuery object of .plusSlider's container - This object isn't part of PlusSlider
-	base.slideCount               // A numerical value of the amount of slides
-	base.slideIndexCount          // The index value of the amount of slides
-	base.animating                // Boolean - true means the slider is busy animating.
-	base.wrapContainerWidth       // A numerical value of the width of base.$wrapContainer
-	base.wrapContainerHeight      // A numerical value of the height of base.$wrapContainer
-	base.currentSlideIndex        // References the index number of the current slide
-	base.sliderWidth              // Stores the slider width value. This changes on resize if fullWidth is enableds
-	base.$currentSlide            // References the current/active slide's jQuery object
-	base.currentSlideWidth        // References a numerical value of the width of the current/active slide
-	base.currentSlideHeight       // References a numerical value of the height of the current/active slide
-	base.beginTimer()             // Method that begins the autoPlay timer
-	base.clearTimer()             // Method that resets the autoPlay timer
-	base.toSlide()                // Method that will change the current/active slide - Accepts 'next', 'prev' or an index number value
+    base.$slider             // References the outside .plusslider jQuery object
+    base.$sliderList         // References the original object
+    base.$sliderContainer    // References Slider container wrapping base.$sliderList
+    base.$sliderItems        // References all jQuery slide objects within base.$sliderList
+    base.slideCount          // A numerical value of the amount of slides
+    base.slideIndexCount     // The index value of the amount of slides
+    base.sliderWidth         //Stores the slider width value. This changes on resize
+    base.animating           // Boolean - true means the slider is busy animating.
+    base.wrapContainerWidth  // A numerical value of the width of base.$slider
+    base.wrapContainerHeight // A numerical value of the height of base.$slider
+    base.activeSlideIndex    // References the index number of the current slide
+    base.$sliderItemsActive  // References the current/active slide's jQuery object
+    base.activeSlideWidth    // References a numerical value of the width of the current/active slide
+    base.activeSlideHeight   // References a numerical value of the height of the current/active slide
+    base.beginTimer()        // Method that begins the autoPlay timer
+    base.clearTimer()        // Method that resets the autoPlay timer
+    base.toSlide()           // Will change the current/active slide - Accepts 'next', 'prev' or an index number value as well as a callback
 
 ### Accessing properties and methods from outside the callback functions
 If you wish to make use of the slider methods and properties outside of the callback functions, you would need to initialize the slider in a slightly different way:
 
-	var slider = null;
-	
-	$(document).ready(function(){
-		slider = new $.plusSlider($('#slider'), {});
-	});
-	slider.toSlide('next); //move slider to next slide
-	slider.toSlide('prev'); //move slider to previous slide
-	slider.toSlide(3); //move slider to arbitrary index (first slide is 0, second is 1, etc.)
+    var slider;
 
+    $(document).ready(function(){
+        slider = new $.plusSlider($('#slider'), {});
+    });
+    slider.toSlide('next); //move slider to next slide
+    slider.toSlide('prev', function(sliderObj){
+        // callback here
+    }); //move slider to previous slide
+    slider.toSlide(3); //move slider to arbitrary index (first slide is 0, second is 1, etc.)
 
 ## Customizing PlusSlider
 
 The default example is a great demonstration of what you can do with PlusSlider, but you probably want to customize the slider to match your site's design.
-To see the bare minimum of styles that are required for a functioning slider, look at the "minimal.html" and "minimal.css" example files. These have all but the most essential styles stripped away so you can easily identify what is and isn't needed for your own custom slider design.
-
-Some things to note about widths and heights:
-
-* A set slider width and height effect can be achieved by giving each slide the same width and height. If they vary, the slider will accomodate the different slide width and height. Since each slide is given a `.child` class, a set width and height on that class would force a static sized PlusSlider.
-* When using the "fader" effect ( `sliderType: 'fader'` ), setting the width/height via javascript options will do some resizing/clipping of images and content (which can be helpful if you have variably-sized content from a CMS, for example).
-* When using the "slider" effect, the slider width/height will adjust depending on the width/height of the slide. A static width/height can be achieved by setting the width/height CSS properties of `.child`.
-* When using the "fader" effect ( `sliderType: 'fader`' ) with non-image content, you will want some kind of background (either a non-transparent background-image or a solid background-color) otherwise the effect will not be smooth.
+Check out this easy 12-step tutorial on <a href="tutorial/index.html">how to customize the design of PlusSlider</a>.
 
 ## Changelog
+
+## Version 1.5.16 - 1.5.12
+* Added the ability to access PlusSlider through the jQuery object. Eg: `$('#slider').plusSlider('toSlide', 2)`
+* Converted class names to work with BEM
+* Changed all elements into `<div>`s.
+* Added swipe touch functionality
+* Added toSlide method callback. Eg: `$(el).plusSlider('toSlide', { slide: 'next', callback: function(base){} })`
+* Bug fixes and stability improvements
+
+## Version 1.5.5
+* `fullWidth` option was integrated into the plugin by default
+* SCSS replaced CSS
+* Grunt built into project for easy js/css deployment/version number updating
+* All elements have been converted to divs
+* Code optimization
+
+### Version 1.4.7
+* Fader effect works better with slides of differing sizes:
+  - Wrapper dimensions are set to slide width/height (just like they are with slider type)
+  - Fade out last slide as new slide fades in (so transition between slides of different sizes looks better).
+* Simplified styling and options:
+  - Removed "width" and "height" javascript options (because all sizing can now be done via CSS)
+  - Removed "paginationTitle" option -- now automatically uses "data-title" attribute where found.
+  - Container ID no longer added as a class to dynamic PlusSlider wrapper
+  - infiniteSlide now automatically overrides no-js fallback "display" settings (so you don't need to do so in your CSS file)
+* Replaced "minimal" examples with new tutorial
 
 ### Version 1.4.6
 * New option added: `inifiniteScroll`
@@ -139,7 +181,7 @@ Some things to note about widths and heights:
 
 ### Version 1.3
 * Added `nextText` and `prevText` options
-* Added the `paginationThumbnails` option 
+* Added the `paginationThumbnails` option
 * Added the `nextSlide()` functionality to `toSlide()` (accepts 'next' and 'prev' as arg values)
 * Removed the `nextSlide()` function (now that it's functionality is in toSlide())
 

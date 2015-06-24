@@ -1,124 +1,122 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
+    <meta charset="utf-8">
 
-	<title>PlusSlider</title>
+    <title>PlusSlider</title>
 
-	<link rel="stylesheet" type="text/css" href="css/style.css" />
-	<link rel="stylesheet" type="text/css" href="css/plusslider.css" />
+    <link rel="stylesheet" type="text/css" href="css/plusslider.css" />
 
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
-	<script type='text/javascript' src='js/jquery.plusslider.js'></script>
-	<script type='text/javascript' src='js/jquery.easing.1.3.js'></script>
-	<script type='text/javascript'>
-	$(document).ready(function(){
-
-		$('#slider').plusSlider({
-			sliderEasing: 'easeInOutExpo', // Anything other than 'linear' and 'swing' requires the easing plugin
-			autoPlay: true,
-			paginationPosition: 'append',
-			sliderType: 'slider' // Choose whether the carousel is a 'slider' or a 'fader'
-		});
-
-		$('#slider2').plusSlider({
-			displayTime: 2000, // The amount of time the slide waits before automatically moving on to the next one. This requires 'autoPlay: true'
-			sliderType: 'fader', // Choose whether the carousel is a 'slider' or a 'fader'
-			width: 500, // Overide the default CSS width
-			height: 250 // Overide the default CSS width
-		});
-
-		$('#slider3').plusSlider({
-			sliderEasing: 'easeInOutExpo', // Anything other than 'linear' and 'swing' requires the easing plugin
-			fullWidth: true,
-			sliderType: 'slider' // Choose whether the carousel is a 'slider' or a 'fader'
-		});
-
-	});
-	</script>
+    <style>
+        /* Custom Slider Styling */
+        img { border: 0; display: block; margin: 0 auto; }
+        .slide1 { background: #171105 url(./images/image1.jpg) no-repeat center top; padding: 20px 40px; width: 550px; }
+        .slide1 > div { margin: 0 auto; width: 630px; }
+        .slide1 h2 { color: #fff; font-size: 20px; margin: 0 0 20px 0; text-align: left; }
+        .slide1 p { border-left: 3px solid #fff; color: #fff; padding: 0 0 0 10px; }
+        /* Page Styling */
+        .quote, .quote2, .quote3 { padding: 20px 0; width: 580px; font: 24px Georgia, serif; text-align: center; width: 100%; position: relative; }
+        .quote { background: #f1f1f1; color: #333; }
+        .quote2 { background: #333; color: #f1f1f1; }
+        .quote3 { background: #666; color: #f1f1f1; }
+        .quote:after, .quote2:after, .quote3:after { content: '100% width'; position: absolute; right: 0; top: 0; }
+        .plusslider.slider3, .plusslider.slider3 .plusslider-pagination-wrapper { border: none; border-radius: 0; }
+        body { background: #333; color: #fff; font: 14px Verdana, sans-serif; }
+        h1 { font: 52px/122px Arial, serif; text-align: center; }
+        #page-wrap { margin: 0 auto; max-width: 768px; }
+        #features h2 { margin: 20px 0 10px 0; font: 36px Georgia, serif; text-align: left; }
+        #features h3 { margin:20px 0 10px 0; font: bold 18px Verdana, sans-serif; }
+        #features p { padding: 3px 0; }
+        #features li { padding: 6px 0; }
+        #features li:before { content: "}"; margin-right: 5px; }
+        #features pre { background: #f1f1f1; color: #333; overflow: auto; padding: 16px 5px 5px; line-height: 22px; font-size: 14px; }
+        #features span.amp { font: 18px Georgia, serif; }
+        em { font-style: italic; }
+        strong { font-weight: bold; }
+    </style>
 </head>
 <body>
-	<div id="page-wrap">
-		<div id="content">
+    <div id="page-wrap">
+        <div id="content">
             <h1>PlusSlider</h1>
-			<div id="slider">
-							
-				<div data-title="PlusSlider" class="slide1">
-					<div>
-						<h2>PlusSlider</h2>
-						<p>
-							A content slider that simply works...<br />
-							The right way
-						</p>
-					</div>
-				</div>
+            <div id="slider">
 
-				<a data-title="Tree" href="#"><img src="images/tree.jpg" alt="" height="250" width="351" /></a>
-				
-				<img data-title="Sunset" src="images/clouds.jpg" alt="" height="134" width="630" />
-				
-				<img data-title="Stop Sign" src="images/image4.jpg" alt="" height="250" width="630" />
-				
-			</div>
-			<br /><br />
-			<div id="slider2">
-			
-				
-				<a href="#"><img src="images/image2.jpg" alt="" height="250" width="630" /></a>
-				
-				<img src="images/image3.jpg" alt="" height="250" width="630" />
-				
-				
-				<img src="images/image4.jpg" alt="" height="250" width="630" />
-				
-			</div>
+                <div data-title="PlusSlider" class="slide1">
+                    <div>
+                        <h2>PlusSlider</h2>
+                        <p>
+                            A content slider that simply works...<br />
+                            The right way
+                        </p>
+                    </div>
+                </div>
 
-			<br /><br />
+                <a data-title="Tree" href="#"><img src="images/tree.jpg" alt="" height="250" width="351" /></a>
 
-			<div id="slider3">
-				<div data-title="Quote" class="quote">
-					I do not fear death,<br />
-					in view of the fact that I had been dead<br />
-					for billions and billions of years<br />
-					before I was born, and had not suffered<br />
-					the slightest inconvenience from it.<br />
-					- Mark Twain
-				</div>
-				<div data-title="Quote2" class="quote2">
-					The difference between the right word<br />
-					and the almost right word is the difference<br />
-					between lightning and a lightning bug.<br />
-					- Mark Twain
-				</div>
-				<div data-title="Quote3" class="quote3">
-					Nature knows no indecencies;<br />
-					man invents them.<br />
-					- Mark Twain
-				</div>
-			</div>
+                <img data-title="Sunset" src="images/clouds.jpg" alt="" height="134" width="630" />
 
-			<div class="content" id="features">
-				<h2>Features</h2>
-				<ul>
-					<li>Slides are <em>HTML</em> (<em>Can be images or text</em>)</li>
-					<li>Easily swap between <strong>fading</strong> <span class="amp">&amp;</span> <strong>sliding</strong></li>
-					<li>Multiple PlusSliders per page</li>
-					<li>Very <em>simple</em> <span class="amp">&amp;</span> <em>valid markup</em></li>
-					<li>Autoplay (<em>Optional</em>)</li>
-					<li><strong>Next/Previous</strong> Navigation (<em>Optional</em>)</li>
-					<li>Titled or numbered <strong>paginated</strong> navigation (<em>Optional</em>)</li>
-					<li>Callback available after each slide</li>
-					<li>Supports slides of various width and height</li>
-					<li>Tested on <strong><abbr title="Internet Explorer">IE</abbr>6+</strong> and <strong>modern browsers</strong></li>
-				</ul>
-				<h2>Default Options</h2>
-				<pre><code>$('#slider').plusSlider({
+                <img data-title="Stop Sign" src="images/image4.jpg" alt="" height="250" width="630" />
+
+            </div>
+            <br /><br />
+            <div id="slider2">
+
+
+                <a href="#"><img src="images/image2.jpg" alt="" height="250" width="630" /></a>
+
+                <img src="images/image3.jpg" alt="" height="250" width="630" />
+
+
+                <img src="images/image4.jpg" alt="" height="250" width="630" />
+
+            </div>
+
+            <br /><br />
+
+            <div id="slider3">
+                <div data-title="Quote" class="quote">
+                    I do not fear death,<br />
+                    in view of the fact that I had been dead<br />
+                    for billions and billions of years<br />
+                    before I was born, and had not suffered<br />
+                    the slightest inconvenience from it.<br />
+                    - Mark Twain
+                </div>
+                <div data-title="Quote2" class="quote2">
+                    The difference between the right word<br />
+                    and the almost right word is the difference<br />
+                    between lightning and a lightning bug.<br />
+                    - Mark Twain
+                </div>
+                <div data-title="Quote3" class="quote3">
+                    Nature knows no indecencies;<br />
+                    man invents them.<br />
+                    - Mark Twain
+                </div>
+            </div>
+
+            <div class="content" id="features">
+                <h2>Features</h2>
+                <ul>
+                    <li>Slides are <em>HTML</em> (<em>Can be images or text</em>)</li>
+                    <li>Easily swap between <strong>fading</strong> <span class="amp">&amp;</span> <strong>sliding</strong></li>
+                    <li>Multiple PlusSliders per page</li>
+                    <li>Very <em>simple</em> <span class="amp">&amp;</span> <em>valid markup</em></li>
+                    <li>Autoplay (<em>Optional</em>)</li>
+                    <li><strong>Next/Previous</strong> Navigation (<em>Optional</em>)</li>
+                    <li>Titled or numbered <strong>paginated</strong> navigation (<em>Optional</em>)</li>
+                    <li>Callback available after each slide</li>
+                    <li>Supports slides of various width and height</li>
+                    <li>Tested on <strong><abbr title="Internet Explorer">IE</abbr>7+</strong> and <strong>modern browsers</strong></li>
+                </ul>
+                <h2>Default Options</h2>
+                <pre><code>$('#slider').plusSlider({
 
         /* General */
         sliderType: 'slider', // Choose whether the carousel is a 'slider' or a 'fader'
         width: false, // Overide the default CSS width
         height: false, // Overide the default CSS width
-        
+
         /* Display related */
         defaultSlide: 0, // Sets the default starting slide - Number based on item index
         displayTime: 4000, // The amount of time the slide waits before automatically moving on to the next one. This requires 'autoPlay: true'
@@ -144,54 +142,83 @@
         /* Callbacks */
         onSlide: null // Callback function
 
-    });</code></pre>				
-				<h2>Changelog</h2>
-				<h3>Version 1.4</h3>
-				<ul>
-					<li>Added slider support for dynamic <code>width</code> and <code>height</code></li>
-					<li>Streamlined the script</li>
-					<li>Removed the <code>paginationThumbnails</code> option</li>
-					<li>Set the <code>paginationWidth</code> to default to false</li>
-					<li>Changed the title of the option <code>autoPlay</code> to <code>autoPlay</code></li>
-					<li>Added <code>defaultSlide</code> option</li>
-					<li>Added comments throughout the jquery.plusslider.js file as well as made it more human-readable</li>
-					<li>Changed a couple of element types and class names</li>
-					<li>Added <code>.plusslide-container</code> class to the <code>.child</code> parent</li>
-				</ul>
-				<h3>Version 1.3</h3>
-				<ul>
-					<li>Added nextText and prevText options</li>
-					<li>Added the paginationThumbnails option</li>
-					<li>Added the nextSlide() functionality to toSlide()</li>
-					<li>Removed the nextSlide() function - Redundant</li>
-				</ul>
-				<h3>Version 1.2.6</h3>
-				<ul>
-					<li>Added a paginationTitle</li>
-					<li>Plugin optimization</li>
-					<li>Added a minimal style option for easier CSS customization - jordanlev</li>
-					<li>Added callback function - jordanlev</li>
-					<li>Added toSlide() function - jordanlev</li>
-				</ul>
+    });</code></pre>
+                <h2>Changelog</h2>
+                <h3>Version 1.4</h3>
+                <ul>
+                    <li>Added slider support for dynamic <code>width</code> and <code>height</code></li>
+                    <li>Streamlined the script</li>
+                    <li>Removed the <code>paginationThumbnails</code> option</li>
+                    <li>Set the <code>paginationWidth</code> to default to false</li>
+                    <li>Changed the title of the option <code>autoPlay</code> to <code>autoPlay</code></li>
+                    <li>Added <code>defaultSlide</code> option</li>
+                    <li>Added comments throughout the jquery.plusslider.js file as well as made it more human-readable</li>
+                    <li>Changed a couple of element types and class names</li>
+                    <li>Added <code>.plusslide-container</code> class to the <code>.child</code> parent</li>
+                </ul>
+                <h3>Version 1.3</h3>
+                <ul>
+                    <li>Added nextText and prevText options</li>
+                    <li>Added the paginationThumbnails option</li>
+                    <li>Added the nextSlide() functionality to toSlide()</li>
+                    <li>Removed the nextSlide() function - Redundant</li>
+                </ul>
+                <h3>Version 1.2.6</h3>
+                <ul>
+                    <li>Added a paginationTitle</li>
+                    <li>Plugin optimization</li>
+                    <li>Added a minimal style option for easier CSS customization - jordanlev</li>
+                    <li>Added callback function - jordanlev</li>
+                    <li>Added toSlide() function - jordanlev</li>
+                </ul>
 
-				<h3>Version 1.2</h3>
-				<ul>
-					<li>Added option to place pagination before the slides</li>
-					<li>Fixed a bug where PlusSlider wouldn't fade when display was set to none</li>
-					<li>Removed version number from all file names</li>
-				</ul>
+                <h3>Version 1.2</h3>
+                <ul>
+                    <li>Added option to place pagination before the slides</li>
+                    <li>Fixed a bug where PlusSlider wouldn't fade when display was set to none</li>
+                    <li>Removed version number from all file names</li>
+                </ul>
 
-				<h3>Version 1.1</h3>
-				<ul>
-					<li>Added support for multiple sliders per page</li>
-					<li>Added a <code>width</code> &amp; <code>height</code> option</li>
-				</ul>
-				<h3>Version 1</h3>
-				<ul>
-					<li>First official version</li>
-				</ul>
-			</div>
-		</div>
-	</div>
+                <h3>Version 1.1</h3>
+                <ul>
+                    <li>Added support for multiple sliders per page</li>
+                    <li>Added a <code>width</code> &amp; <code>height</code> option</li>
+                </ul>
+                <h3>Version 1</h3>
+                <ul>
+                    <li>First official version</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src='js/jquery.easing.1.3.js'></script>
+    <script type="text/javascript" src='js/jquery.plusslider.js'></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+
+        $('#slider').plusSlider({
+            autoPlay: false,
+            sliderEasing: 'easeInOutExpo', // Anything other than 'linear' and 'swing' requires the easing plugin
+            paginationPosition: 'append',
+            sliderType: 'slider' // Choose whether the carousel is a 'slider' or a 'fader'
+        });
+
+        $('#slider2').plusSlider({
+            autoPlay: false,
+            displayTime: 2000, // The amount of time the slide waits before automatically moving on to the next one. This requires 'autoPlay: true'
+            sliderType: 'fader' // Choose whether the carousel is a 'slider' or a 'fader'
+        });
+
+        $('#slider3').plusSlider({
+            sliderEasing: 'easeInOutExpo', // Anything other than 'linear' and 'swing' requires the easing plugin
+            autoPlay: false,
+            sliderType: 'slider' // Choose whether the carousel is a 'slider' or a 'fader'
+        });
+
+    });
+    </script>
 </body>
 </html>
